@@ -1,0 +1,21 @@
+<h1>New Game</h1>
+<% @letters  %>
+<br>
+<p class="letter-btn"><%= @letters[0].upcase %></p>
+<p class="letter-btn"><%= @letters[1].upcase %></p>
+<p class="letter-btn"><%= @letters[2].upcase %></p>
+<p class="letter-btn"><%= @letters[3].upcase %></p>
+<p class="letter-btn"><%= @letters[4].upcase %></p>
+<p class="letter-btn"><%= @letters[5].upcase %></p>
+<p class="letter-btn"><%= @letters[6].upcase %></p>
+<p class="letter-btn"><%= @letters[7].upcase %></p>
+<p class="letter-btn"><%= @letters[8].upcase %></p>
+<p class="letter-btn"><%= @letters[9].upcase %></p>
+<br>
+<p>What is the longest word you can think of?</p>
+<form action="/score" method="post" data-turbo="false" placeholder="Submit">
+  <input type="text" name="input">
+  <input type="submit" value="Ask!">
+  <input type="hidden" name="generated" value="<%= @letters.join %>">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>

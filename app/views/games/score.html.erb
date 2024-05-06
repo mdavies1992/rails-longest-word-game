@@ -1,0 +1,19 @@
+<h1>Results:</h1>
+
+<% if @found == true then word_check = "#{params[:input]} is indeed a viable, english word!"
+else word_check = "I'm afraid that #{params[:input]} isn't an english word."
+end %>
+<% if @valid == true then valid_check = "#{params[:input]} was found in the letters given!"
+else word_check = "I'm afraid that #{params[:input]} isn't in the letters given."
+end %>
+<% if @valid == true && @found == true then final_score = "You earned #{params[:input].length} (out of 10) points!"
+else final_score = "You earn 0 points."
+end %>
+
+<%= word_check %>
+<br>
+<%= valid_check %>
+<br>
+<%= final_score%>
+<br>
+<%= link_to "Play again?", "new", {:class => "btn btn-primary"}  %>
